@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core'
-import { Routes } from '@angular/router'
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
+import { NativeScriptModule } from '@nativescript/angular'
 import { NativeScriptRouterModule } from '@nativescript/angular'
-
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -12,7 +11,7 @@ import { UserComponent } from './user/user.component'
 @NgModule({
   bootstrap: [AppComponent],
   imports: [NativeScriptModule, AppRoutingModule],
-  declarations: [AppComponent, ItemsComponent, ItemDetailComponent],
+  declarations: [AppComponent, ItemsComponent, ItemDetailComponent, UserComponent],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
 })
