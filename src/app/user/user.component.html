@@ -1,0 +1,24 @@
+<StackLayout >
+    <Label text="Charmander" fontSize="24" class="text-center"></Label>
+    <Image height="80"  width="80"  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"></Image>
+    <TimePicker
+            height="120"
+            hour="23"
+            minute="59"
+            maxHour="23"
+            maxMinute="59"
+    ></TimePicker>
+    <SegmentedBar>
+        <SegmentedBarItem title="First"></SegmentedBarItem>
+        <SegmentedBarItem title="Second"></SegmentedBarItem>
+        <SegmentedBarItem title="Third"></SegmentedBarItem>
+    </SegmentedBar>
+    <button height="50"
+            [nsRouterLink]="['/items']"
+            text="Tap me!"
+            android.position="popup"
+            textWrap="true"
+            class="-rounded-lg"
+            style="background: skyblue; color: white">
+    </button>
+</StackLayout>
