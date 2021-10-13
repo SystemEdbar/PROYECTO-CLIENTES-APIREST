@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/items', pathMatch: 'full' },
   { path: 'items', component: ItemsComponent },
   { path: 'item/:id', component: ItemDetailComponent },
-  { path: 'users' component: UserComponent},
-  { path: 'user/edit' component: UserEditComponent},
-  { path: 'user/create' component: UserCreateComponent},
+  { path: 'users', component: UserComponent},
+  { path: 'user/edit', component: UserEditComponent},
+  { path: 'user/create', component: UserCreateComponent},
 ]
 
 @NgModule({
