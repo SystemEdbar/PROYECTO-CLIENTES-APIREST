@@ -14,6 +14,22 @@
         <SegmentedBarItem title="Third"></SegmentedBarItem>
     </SegmentedBar>
     <button height="50"
+            [nsRouterLink]="['/user/create']"
+            text="Crear usuario"
+            android.position="popup"
+            textWrap="true"
+            class="-rounded-lg"
+            style="background: skyblue; color: white">
+    </button>
+    <button height="50"
+            [nsRouterLink]="['/user/edit']"
+            text="Editar Usuario"
+            android.position="popup"
+            textWrap="true"
+            class="-rounded-lg"
+            style="background: skyblue; color: white">
+    </button>
+    <button height="50"
             [nsRouterLink]="['/items']"
             text="Tap me!"
             android.position="popup"
