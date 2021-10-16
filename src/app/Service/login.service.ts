@@ -12,7 +12,7 @@ export class LoginService {
   url:string = "http://127.0.0.1:8000/"
   constructor(private http:HttpClient) {}
 
-  loginByEmail(form:LoginI):Observable<ResponseI>{
+  loginByEmail(form:LoginI):Observable<any>{
     let dir = this.url + "api/login"
     return this.http.post<ResponseI>(dir, form)
   }

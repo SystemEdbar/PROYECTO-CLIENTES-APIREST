@@ -22,6 +22,7 @@
             <!--            <Label class="label"text="Please enter a valid Password"></Label>-->
         </StackLayout>
         <Button class="-rounded"
+                [nsRouterLink]="['/items']"
                 (tap)="onLogin(loginForm.value)"
                 text="Login"
         ></Button>
