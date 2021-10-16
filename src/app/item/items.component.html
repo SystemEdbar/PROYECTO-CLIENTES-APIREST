@@ -10,11 +10,28 @@ So you can still use template expressions, bindings, templates as well as all th
 The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
 http://docs.nativescript.org/ui/action-bar
 -->
-<ActionBar title="My App"> </ActionBar>
+<ActionBar style="background-color: green;"title="REGISTRO">
+  <StackLayout>
+    <Label text="REGISTRO DE USARIOS" fontSize="25" class="text-center" style="color: white"></Label>
+  </StackLayout>
+</ActionBar>
+
 <StackLayout>
   <button height="50"
           [nsRouterLink]="['/users']"
-          text="Crear Usuario!"
+          text="Crear Usuario!" fontSize="20"
+          android.position="popup"
+          textWrap="true"
+          class="-rounded-lg"
+          style="background: blue; color: white">
+  </button>
+</StackLayout>
+
+<!--
+<StackLayout>
+  <button height="50"
+          [nsRouterLink]="['/users']"
+          text="Crear Usuario!" fontSize="20"
           android.position="popup"
           textWrap="true"
           class="-rounded-lg"
@@ -31,3 +48,4 @@ http://docs.nativescript.org/ui/action-bar
     </ListView>
   </GridLayout>
 </StackLayout>
+-->
