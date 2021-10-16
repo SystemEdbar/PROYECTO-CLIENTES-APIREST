@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form:LoginI){
-    console.log(form)
+    console.log(JSON.stringify(form))
     this.api.loginByEmail(form).subscribe(data =>{
       console.log(data)
     });
