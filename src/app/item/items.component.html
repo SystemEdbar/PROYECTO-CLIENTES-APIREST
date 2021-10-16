@@ -15,14 +15,10 @@
            horizontalAlignment="right">
     </label>
   </StackLayout>
-
-
 </ActionBar>
 
 <StackLayout>
   <GridLayout>
-
-
     <ListView [items]="items">
       <ng-template let-item="item">
         <StackLayout orientation="horizontal" backgroundColor="#E3F1EC" class="list-group-item" [nsRouterLink]="['/item', item.id]">
