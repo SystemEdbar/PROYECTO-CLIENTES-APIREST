@@ -1,0 +1,32 @@
+<ActionBar title="LOGIN" class="text-center"> </ActionBar>
+<StackLayout>
+    <Label text="Charmander" fontSize="24" class="text-center"></Label>
+    <Image height="80"  width="80"  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png">
+    </Image>
+    <StackLayout  class="login-form" [formGroup]="loginForm">
+        <StackLayout class="input-field">
+            <TextField
+                    class="input"
+                    hint="Enter E-Mail"
+                    formControlName="email"
+            ></TextField>
+            <!--            <Label class="label" text="Please enter a valid E-Mail"></Label>-->
+        </StackLayout>
+        <StackLayout  class="input-field">
+            <TextField
+                    class="input"
+                    hint="Enter Password"
+                    [secure]="true"
+                    formControlName="password"
+            ></TextField>
+            <!--            <Label class="label"text="Please enter a valid Password"></Label>-->
+        </StackLayout>
+        <Button class="-rounded"
+                (tap)="onLogin(loginForm.value)"
+                text="Login"
+        ></Button>
+        <FlexboxLayout justifyContent="center" alignItems="center" >
+            <ActivityIndicator></ActivityIndicator>
+        </FlexboxLayout>
+    </StackLayout>
+</StackLayout>

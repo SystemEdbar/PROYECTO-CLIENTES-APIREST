@@ -1,19 +1,21 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
 import { NativeScriptModule } from '@nativescript/angular'
+import { NativeScriptFormsModule } from "@nativescript/angular"
 import { NativeScriptRouterModule } from '@nativescript/angular'
+import {ReactiveFormsModule, FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule, routingComponents } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { ItemsComponent } from './item/items.component'
-import { ItemDetailComponent } from './item/item-detail.component'
-import { UserComponent } from './user/user.component'
-import { UserCreateComponent } from './user/usercreate.component'
-import { UserEditComponent } from './user/useredit.component'
+import { LoginService } from './service/login.service'
+import { ResponseI } from './models/response.interface'
+import { LoginI } from './models/login.interface'
+
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [NativeScriptModule, AppRoutingModule],
-  declarations: [AppComponent, ItemsComponent, ItemDetailComponent, UserComponent, UserCreateComponent, UserEditComponent],
+  imports: [NativeScriptModule, AppRoutingModule, ReactiveFormsModule, FormsModule, NativeScriptFormsModule, HttpClientModule],
+  declarations: [AppComponent, routingComponents],
   providers: [],
   schemas: [NO_ERRORS_SCHEMA],
 })
