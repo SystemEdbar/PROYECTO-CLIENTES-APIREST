@@ -10,3 +10,74 @@
             style="background: skyblue; color: white">
     </button>
 </StackLayout>
+
+<ActionBar style="background-color: skyblue;"title="REGISTRO">
+    <StackLayout>
+        <Label text="USER REGISTRATION" fontSize="25" class="text-center" style="color: white"></Label>
+    </StackLayout>
+</ActionBar>
+
+<StackLayout>
+    <image width="150"height="150"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png"
+           stretch="aspectFill"
+    >
+    </image>
+    <TextField width="325"height="50"
+               link href  ="https://www.svgrepo.com/show/96920/id-card.svg"
+               hint="    ID" fontSize="15"
+               color="blue"
+               backgroundColor="white"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Name" fontSize="15"
+               color="blue"
+               backgroundColor="white"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Email" fontSize="15"
+               color="blue"
+               backgroundColor="white"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Tel" fontSize="15"
+               color="blue"
+               backgroundColor="white"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    GithubAccount" fontSize="15"
+               color="blue"
+               backgroundColor="white"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Photo" fontSize="15"
+               color="blue"
+               backgroundColor="white"
+               class="-rounded-lg">
+    </TextField>
+    <Label>
+
+    </Label>
+    <button width="325" height="50"
+            [nsRouterLink]="['/users']"
+            text="CONTINUE" fontSize="22"
+            android.position="popup"
+            textWrap="true"
+            class="-rounded-lg"
+            style="background: skyblue; color: white">
+    </button>
+    <button>
+        <FormattedString>
+      <span text="Terms & Conditions" fontSize="15"
+            style="color: skyblue"
+            fontStyle="italic"
+            fontWeight="bold">
+      </span>
+        </FormattedString>
+    </button>
+</StackLayout>
