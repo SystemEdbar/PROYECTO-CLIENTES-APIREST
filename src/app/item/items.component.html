@@ -27,9 +27,9 @@
             <Label [text]="item.name" fontSize="15"></Label>
             <Label [text]="item.role" fontSize="15"></Label>
           </StackLayout>
-          <StackLayout horizontal-align="right" orientation="horizontal" class="list-group-item">
-            <Label  text="&#xf044;" class="fa action-item" ></Label>
-            <Label text="&#xf1f8;" class="fa action-item" ></Label>
+          <StackLayout style="align: right" horizontal-align="right" orientation="horizontal" class="list-group-item">
+            <Label style="align: right" text="&#xf044;" class="fa action-item" [nsRouterLink]="['/user/edit']"></Label>
+            <Label style="align: right" text="&#xf1f8;" class="fa action-item" ></Label>
           </StackLayout>
         </StackLayout>
       </ng-template>

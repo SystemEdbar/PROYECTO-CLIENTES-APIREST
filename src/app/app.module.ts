@@ -10,7 +10,7 @@ import { AppComponent } from './app.component'
 import { LoginService } from './service/login.service'
 import { ResponseI } from './models/response.interface'
 import { LoginI } from './models/login.interface'
-
+import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nativescript/core";
 
 @NgModule({
   bootstrap: [AppComponent],

@@ -6,7 +6,7 @@
     <StackLayout  class="login-form" [formGroup]="loginForm">
         <StackLayout class="input-field">
             <TextField
-                    class="input"
+                    class="input -rounded-lg"
                     hint="Enter E-Mail"
                     formControlName="email"
             ></TextField>
@@ -14,7 +14,7 @@
         </StackLayout>
         <StackLayout  class="input-field">
             <TextField
-                    class="input"
+                    class="input -rounded-lg"
                     hint="Enter Password"
                     [secure]="true"
                     formControlName="password"
@@ -26,6 +26,7 @@
                 (tap)="onLogin(loginForm.value)"
                 text="Login"
         ></Button>
+        <!--                (tap)="onLogin(loginForm.value)"-->
         <FlexboxLayout justifyContent="center" alignItems="center" >
             <ActivityIndicator></ActivityIndicator>
         </FlexboxLayout>
