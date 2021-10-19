@@ -4,6 +4,7 @@ import { NativeScriptFormsModule } from "@nativescript/angular"
 import { NativeScriptRouterModule } from '@nativescript/angular'
 import {ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
+import 'nativescript-localstorage';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module'
 import { AppComponent } from './app.component'

@@ -5,26 +5,49 @@ import { ListPacientI} from '../models/list-pacient.interface'
 import { ResponseI } from '../models/response.interface'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
+import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nativescript/core";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class LoginService {
-  url:string = "http://3.140.5.181/"
+  url: string = "https://curso-desweb.herokuapp.com/"
   constructor(private http:HttpClient) {}
 
-  getPacient():Observable<PacientDetailI>{
-    let dir = this.url + "pacientes?id=4"
-    return this.http.get<PacientDetailI>(dir)
-  }
-  getListPacient():Observable<ListPacientI>{
-      let dir = this.url + "pacientes?page=1"
-      return this.http.get<ListPacientI>(dir)
-    }
   loginByEmail(form:LoginI):Observable<ResponseI>{
-    console.log(form)
-    return this.http.post<ResponseI>("http://127.0.0.1:8000/api/login", form)
+    let dir = this.url + "api/login"
+    return this.http.post<ResponseI>(dir, form)
   }
-
 }
+//   obtenerTodos(){
+//       Http.request({
+//         url: 'https://curso-desweb.herokuapp.com/api/infouser',
+//         method: 'GET'
+//       }).then(
+//         (response: HttpResponse) => {
+//           // Argument (response) is HttpResponse
+//           console.log(`Response Status Code: ${response.statusCode}`)
+//           console.log(`Response Headers: ${response.statusCode}`)
+//           console.log(`Response Content: ${response.content}`)
+//         },
+//         e => {}
+//       )
+//   }
+//   loginByEmail(form:LoginI){
+//         token: string;
+//         Http.request({
+//           url: "https://curso-desweb.herokuapp.com/api/login",
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           content: JSON.stringify(form),
+//         }).then(
+//           (response: HttpResponse) => {
+//             const result = response.content.toJSON();
+//             console.log(`Response Status Code: ${response.statusCode}`)
+//             console.log(`Response Headers: ${response.statusCode}`)
+//             console.log(`Response Content: ${response.content}`)
+//           },
+//           (e) => {}
+//         );
+//   }
