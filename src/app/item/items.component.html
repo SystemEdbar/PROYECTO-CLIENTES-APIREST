@@ -1,37 +1,51 @@
 <head>
   <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
 </head>
-<ActionBar backgroundColor="#56A67C">
-  <StackLayout orientation="horizontal">
-    <Label [text]="'Lista de Usuarios               '" fontSize="23"></Label>
+
+<ActionBar backgroundColor="#3598E7">
+  <DockLayout>
+    <Label [text]="'LISTA DE USUARIOS'" fontSize="23" style="color: white"></Label>
     <label height="50"
            [nsRouterLink]="['/user/create']"
            text="  Agregar"
            android.position="popup"
            textWrap="true"
            class="-rounded"
-           style="background: #E3F1EC; color: black;"
-    fontSize="16"
+           style="background: #209F1D; color: white"
+           fontSize="16; 10"
            horizontalAlignment="right">
     </label>
-  </StackLayout>
+  </DockLayout>
 </ActionBar>
 
 <StackLayout>
   <GridLayout>
     <ListView [items]="items">
       <ng-template let-item="item">
-        <StackLayout orientation="horizontal" backgroundColor="#E3F1EC" class="list-group-item">
-          <StackLayout orientation="horizontal" class="list-group-item" [nsRouterLink]="['/item', item.id]">
+        <DockLayout>
+            <Label width="15"></Label>
             <Label [text]="item.id" fontSize="15"></Label>
-            <Label [text]="item.name" fontSize="15"></Label>
-            <Label [text]="item.role" fontSize="15"></Label>
-          </StackLayout>
-          <StackLayout style="align: right" horizontal-align="right" orientation="horizontal" class="list-group-item">
-            <Label style="align: right" text="&#xf044;" class="fa action-item" [nsRouterLink]="['/user/edit']"></Label>
-            <Label style="align: right" text="&#xf1f8;" class="fa action-item" ></Label>
-          </StackLayout>
-        </StackLayout>
+            <Label width="10"></Label>
+            <Label text="&#xf2bd;" fontSize="50" width="50" height="50" class="fa action-item"></Label>
+            <!--<image src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="50" height="50"></image>-->
+            <StackLayout>
+                <Label [text]="item.name" fontSize="15" [nsRouterLink]="['/item', item.id]"></Label>
+                <Label [text]="item.role" fontSize="15" [nsRouterLink]="['/item', item.id]"></Label>
+            </StackLayout>
+            <DockLayout>
+                <StackLayout width="80" dock="right">
+                    <Label height="15"></Label>
+                    <Label text="&#xf1f8;" fontSize="30" class="fa action-item" style="color: red"></Label>
+                </StackLayout>
+                <StackLayout width="80" dock="right">
+                    <Label height="15"></Label>
+                    <Label text="&#xf044;" fontSize="30" style="color: #3598E7" class="fa action-item" [nsRouterLink]="['/user/edit']"></Label>
+                </StackLayout>
+                <StackLayout width="0" dock="right">
+                    <Label></Label>
+                </StackLayout>
+            </DockLayout>
+        </DockLayout>
       </ng-template>
     </ListView>
   </GridLayout>

@@ -1,31 +1,60 @@
-<ActionBar title="LOGIN" class="text-center"> </ActionBar>
-<StackLayout backgroundColor="#E3F1EC">
-    <Label text="Charmander" fontSize="24" class="text-center"></Label>
-    <Image height="80"  width="80"  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png">
-    </Image>
+<head>
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+</head>
+
+<ActionBar style="background-color: #3598E7"title="REGISTRO">
+    <StackLayout>
+        <Label text="INICIAR SESION" fontSize="25" class="text-center" style="color: white"></Label>
+    </StackLayout>
+</ActionBar>
+
+<StackLayout>
+    <Label height="30"></Label>
+    <Label text="&#xf007;" fontSize="100" width="100" height="100" style="color: #919393" class="fa action-item; text-center"></Label>
+    <!--<image src="https://www.viena.com.ar/img/user.png" width="100" height="100"></image>-->
+    <Label height="25"></Label>
+    <Label text="INGRESA TUS DATOS" class="text-center" fontSize="20"></Label>
+    <Label text="PARA CONTINUAR" class="text-center" fontSize="20"></Label>
+    <Label height="40"></Label>
     <StackLayout  class="login-form" [formGroup]="loginForm">
         <StackLayout class="input-field">
-            <TextField
-                    class="input -rounded-lg"
-                    hint="Enter E-Mail"
-                    formControlName="email"
-            ></TextField>
+            <TextField width="325"height="50"
+                       hint="    Ingresar Correo" fontSize="15"
+                       color="blue"
+                       backgroundColor="#F0F2F3"
+                       class="-rounded-lg"
+                        formControlName="email">
+            </TextField>
             <!--            <Label class="label" text="Please enter a valid E-Mail"></Label>-->
         </StackLayout>
+        <Label height="7"></Label>
         <StackLayout  class="input-field">
-            <TextField
-                    class="input -rounded-lg"
-                    hint="Enter Password"
-                    [secure]="true"
-                    formControlName="password"
-            ></TextField>
+            <TextField width="325"height="50"
+                       hint="    Ingresar Contraseña" fontSize="15"
+                       color="blue"
+                       backgroundColor="#F0F2F3"
+                       class="-rounded-lg"
+                       [secure]="true"
+                       formControlName="password">
+            </TextField>
             <!--            <Label class="label"text="Please enter a valid Password"></Label>-->
         </StackLayout>
-        <Button class="-rounded"
+        <Label height="10"></Label>
+        <button width="160" height="53"
                 [nsRouterLink]="['/items']"
                 (tap)="onLogin(loginForm.value)"
-                text="Login"
-        ></Button>
+                text="Iniciar Sesion" fontSize="20"
+                android.position="popup"
+                textWrap="true"
+                class="-rounded-lg"
+                style="background: #3598E7; color: white">
+        </button>
+        <Label text="¿Olvidaste tu contraseña?" fontSize="15" class="text-center" style="color: blue" height="170" [nsRouterLink]="['/']"></Label>
+        <DockLayout>
+            <Label width="87"></Label>
+            <Label text="No tienes una cuenta?" fontSize="15" style="color: blue"></Label>
+            <Label text="  Registrate" textWrap="true" fontSize="15" style="color: black" [nsRouterLink]="['/user/create']"></Label>
+        </DockLayout>
         <!--                (tap)="onLogin(loginForm.value)"-->
         <FlexboxLayout justifyContent="center" alignItems="center" >
             <ActivityIndicator></ActivityIndicator>
