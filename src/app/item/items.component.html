@@ -4,9 +4,9 @@
 
 <ActionBar backgroundColor="#3598E7">
   <DockLayout>
-    <Label [text]="'LISTA DE USUARIOS'" fontSize="23" style="color: white"></Label>
+    <Label [text]="'LISTA DE CLIENTES'" fontSize="23" style="color: white"></Label>
     <label height="50"
-           [nsRouterLink]="['/user/create']"
+           [nsRouterLink]="['client/create']"
            text="  Agregar"
            android.position="popup"
            textWrap="true"
@@ -21,16 +21,15 @@
 <StackLayout>
   <GridLayout>
     <ListView [items]="items">
-      <ng-template let-item="item">
+      <ng-template let-item="item" let-i="index">
         <DockLayout>
             <Label width="15"></Label>
-            <Label [text]="item.id" fontSize="15"></Label>
+            <Label text="{{(i+1)}}" fontSize="15"></Label>
             <Label width="10"></Label>
             <Label text="&#xf2bd;" fontSize="50" width="50" height="50" class="fa action-item"></Label>
-            <!--<image src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="50" height="50"></image>-->
-            <StackLayout>
-                <Label [text]="item.name" fontSize="15" [nsRouterLink]="['/item', item.id]"></Label>
-                <Label [text]="item.role" fontSize="15" [nsRouterLink]="['/item', item.id]"></Label>
+            <StackLayout [nsRouterLink]="['/item', item.id]">
+                <Label [text]="item.cli_name" fontSize="15"></Label>
+                <Label [text]="'Tel: ' + (item.cli_telefono)" fontSize="15"></Label>
             </StackLayout>
             <DockLayout>
                 <StackLayout width="80" dock="right">
@@ -39,11 +38,9 @@
                 </StackLayout>
                 <StackLayout width="80" dock="right">
                     <Label height="15"></Label>
-                    <Label text="&#xf044;" fontSize="30" style="color: #3598E7" class="fa action-item" [nsRouterLink]="['/user/edit']"></Label>
+                    <Label text="&#xf044;" fontSize="30" style="color: #3598E7" class="fa action-item" (tap)="onEdit()"></Label>
                 </StackLayout>
-                <StackLayout width="0" dock="right">
-                    <Label></Label>
-                </StackLayout>
+
             </DockLayout>
         </DockLayout>
       </ng-template>

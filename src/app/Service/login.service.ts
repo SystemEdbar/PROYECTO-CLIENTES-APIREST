@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
-import { LoginI} from '../models/login.interface'
-import { PacientDetailI} from '../models/pacient-detail.interface'
-import { ListPacientI} from '../models/list-pacient.interface'
+import { LoginI } from '../models/login.interface'
+import { RegisterI } from '../models/register.interface'
 import { ResponseI } from '../models/response.interface'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
@@ -12,13 +11,17 @@ import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nati
 })
 
 export class LoginService {
-  url: string = "https://curso-desweb.herokuapp.com/"
+  url: string = "https://proyecto-desweb.herokuapp.com/"
   constructor(private http:HttpClient) {}
 
   loginByEmail(form:LoginI):Observable<ResponseI>{
     let dir = this.url + "api/login"
     return this.http.post<ResponseI>(dir, form)
   }
+    registerByEmail(form:RegisterI):Observable<ResponseI>{
+      let dir = this.url + "api/register "
+      return this.http.post<ResponseI>(dir, form)
+    }
 }
 //   obtenerTodos(){
 //       Http.request({

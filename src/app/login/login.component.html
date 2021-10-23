@@ -23,7 +23,7 @@
                        color="blue"
                        backgroundColor="#F0F2F3"
                        class="-rounded-lg"
-                        formControlName="email">
+                       formControlName="email">
             </TextField>
             <!--            <Label class="label" text="Please enter a valid E-Mail"></Label>-->
         </StackLayout>
@@ -41,7 +41,6 @@
         </StackLayout>
         <Label height="10"></Label>
         <button width="160" height="53"
-                [nsRouterLink]="['/items']"
                 (tap)="onLogin(loginForm.value)"
                 text="Iniciar Sesion" fontSize="20"
                 android.position="popup"
