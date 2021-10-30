@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { Item } from './item'
 import { ItemService } from './item.service'
+import { ItemDetailComponent } from './item-detail.component'
 
 @Component({
   selector: 'ns-items',
@@ -17,10 +18,10 @@ export class ItemsComponent implements OnInit {
   }
   checkLocalStorage(){
       if(localStorage.getItem('access_token')){
+//         localStorage.removeItem('access_token');
              this.itemService.getItems().subscribe(
                response => {
                  this.items=response.result.cliente;
-                 console.log(this.items)
                },
                error => console.log(error)
              );
@@ -28,7 +29,4 @@ export class ItemsComponent implements OnInit {
         this.router.navigate(['login'])
       }
     }
-  onEdit(){
-    this.router.navigate(['cliente/create'])
-  }
 }

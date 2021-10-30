@@ -1,20 +1,57 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-
+import { Router } from '@angular/router'
 import { Item } from './item'
 import { ItemService } from './item.service'
+import { ResponseI } from '../models/response.interface'
+
+
+import { Observable } from 'rxjs'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nativescript/core";
 
 @Component({
   selector: 'ns-details',
   templateUrl: './item-detail.component.html',
 })
 export class ItemDetailComponent implements OnInit {
-  item: Item
+  url: string = "https://systemedbar.site/"
+  item: Object
 
-  constructor(private itemService: ItemService, private route: ActivatedRoute) {}
+  constructor(private http:HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-//     const id = +this.route.snapshot.params.id
-//     this.item = this.itemService.getItem(id)
+    const id = +this.route.snapshot.params.id
+    this.checkLocalStorage(id)
+  }
+  checkLocalStorage(id: number){
+      if(localStorage.getItem('access_token')){
+              console.log(localStorage.getItem('access_token'))
+             this.infoUser(id).subscribe(
+               response => {
+                 this.item=response;
+                 console.log(this.item)
+               },
+               error => console.log(error)
+             );
+      }else{
+        this.router.navigate(['login'])
+      }
+    }
+
+  infoUser(id: number):Observable<ResponseI>{
+    console.log(id);
+    let options = this.createRequestOptions();
+    let dir = this.url + "api/clientes/edit/1"
+    console.log(dir)
+    return this.http.get<ResponseI>(dir, {headers: options})
+  }
+
+  private createRequestOptions() {
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": "Bearer "+ localStorage.getItem("access_token")
+    });
+    return headers;
   }
 }

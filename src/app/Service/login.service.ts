@@ -11,17 +11,24 @@ import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nati
 })
 
 export class LoginService {
-  url: string = "https://proyecto-desweb.herokuapp.com/"
+  url: string = "https://systemedbar.site/"
   constructor(private http:HttpClient) {}
+  private createRequestOptions() {
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": "Bearer "+ localStorage.getItem("access_token")
+    });
+    return headers;
+  }
 
   loginByEmail(form:LoginI):Observable<ResponseI>{
     let dir = this.url + "api/login"
     return this.http.post<ResponseI>(dir, form)
   }
-    registerByEmail(form:RegisterI):Observable<ResponseI>{
-      let dir = this.url + "api/register "
-      return this.http.post<ResponseI>(dir, form)
-    }
+  registerByEmail(form:RegisterI):Observable<ResponseI>{
+    let dir = this.url + "api/register "
+    return this.http.post<ResponseI>(dir, form)
+  }
 }
 //   obtenerTodos(){
 //       Http.request({
