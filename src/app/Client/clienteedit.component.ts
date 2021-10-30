@@ -9,12 +9,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nativescript/core";
 require( "nativescript-localstorage" );
 @Component({
-  selector: 'clientecreate',
-  templateUrl: './clientecreate.component.html'
+  selector: 'clienteedit',
+  templateUrl: './clienteedit.component.html'
 })
 
-export class ClienteCreateComponent{
+export class ClienteEditComponent{
   url: string = "https://systemedbar.site/"
+  cli_id: number
+  cli_nit: string
+  cli_nombre: string
+  cli_telefono: string
+  cli_email: string
+  cli_imagen: string
   clienteForm: FormGroup
 
   constructor(private http:HttpClient, private router: Router, private route: ActivatedRoute) {}
@@ -32,14 +38,26 @@ export class ClienteCreateComponent{
   }
   checkLocalStorage(id: number){
       if(localStorage.getItem('access_token')){
-
+              console.log(localStorage.getItem('access_token'))
+             this.infoUser(id).subscribe(
+               response => {
+                 this.cli_id=response.result.cliente.cli_id;
+                 this.cli_nit=response.result.cliente.cli_nit;
+                 this.cli_nombre=response.result.cliente.cli_nombre;
+                 this.cli_telefono=response.result.cliente.cli_telefono;
+                 this.cli_email=response.result.cliente.cli_email;
+                 this.cli_imagen=response.result.cliente.cli_imagen;
+                 console.log(response)
+               },
+               error => console.log(error)
+             );
       }else{
         this.router.navigate(['login'])
       }
     }
 
-  crear(form: ClienteI){
-      this.createCliente(form).subscribe(
+  actualizar(form: ClienteI, id: number){
+      this.updateCliente(form, id).subscribe(
          response => {
             let data:ResponseI = response
             if(data.status == 'Okay'){
@@ -50,10 +68,18 @@ export class ClienteCreateComponent{
          error => console.log(error)
        );
   }
-  createCliente(form: ClienteI):Observable<ResponseI>{
+  infoUser(id: number):Observable<ResponseI>{
+    console.log(id);
+    let options = this.createRequestOptions();
+    let dir = this.url + "api/clientes/edit/"+id
+    console.log(dir)
+    return this.http.get<ResponseI>(dir, {headers: options})
+  }
+  updateCliente(form: ClienteI, id: number):Observable<ResponseI>{
+    console.log(id);
     console.log(form)
     let options = this.createRequestOptions();
-    let dir = this.url + "api/clientes/create"
+    let dir = this.url + "api/clientes/update/"+id
     console.log(dir)
     return this.http.post<ResponseI>(dir, form, {headers: options})
   }

@@ -1,0 +1,68 @@
+<ActionBar style="background-color: #3598E7;"title="EDIT">
+    <StackLayout>
+        <Label text="EDITAR USUARIO" fontSize="25" class="text-center" style="color: white"></Label>
+    </StackLayout>
+</ActionBar>
+
+<StackLayout class="cliente-form" [formGroup]="clienteForm">
+    <image width="150"height="150"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png"
+           stretch="aspectFill"
+    >
+    </image>
+    <TextField width="325"height="50"
+               link href  ="https://www.svgrepo.com/show/96920/id-card.svg"
+               hint="    Identificación" fontSize="15"
+               [text]=" cli_nit "
+               formControlName="cli_nit"
+               color="blue"
+               backgroundColor="#F0F2F3"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Nombre" fontSize="15"
+               [text]=" cli_nombre "
+               formControlName="cli_nombre"
+               color="blue"
+               backgroundColor="#F0F2F3"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Correo" fontSize="15"
+               [text]=" cli_email "
+               formControlName="cli_email"
+               color="blue"
+               backgroundColor="#F0F2F3"
+               class="-rounded-lg">
+    </TextField>
+    <TextField width="325"height="50"
+               hint="    Telefono" fontSize="15"
+               [text]=" cli_telefono "
+               formControlName="cli_telefono"
+               color="blue"
+               backgroundColor="#F0F2F3"
+               class="-rounded-lg">
+    </TextField>
+    <image
+            width="150"height="150"
+            [src]="'https://systemedbar.site' + cli_imagen"
+            stretch="aspectFill">
+    </image>
+    <button width="325"height="50"
+            text="    Fotografía" fontSize="15"
+            color="white"
+            backgroundColor="green"
+            class="-rounded-lg">
+    </button>
+    <Label>
+    </Label>
+    <button width="325" height="50"
+            (tap)="actualizar(clienteForm.value, cli_id)"
+            text="ACTUALIZAR" fontSize="22"
+            android.position="popup"
+            textWrap="true"
+            class="-rounded-lg"
+            style="background: #3598E7; color: white">
+    </button>
+</StackLayout>
+

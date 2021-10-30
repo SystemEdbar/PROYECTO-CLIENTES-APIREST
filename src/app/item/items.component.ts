@@ -29,4 +29,20 @@ export class ItemsComponent implements OnInit {
         this.router.navigate(['login'])
       }
     }
+
+    onCerrar(){
+        localStorage.removeItem('access_token')
+        this.router.navigate(['login'])
+    }
+    onEliminar(id: number){
+      this.itemService.deleteCliente(id).subscribe(
+         response => {
+            this.checkLocalStorage()
+         },
+         error => console.log(error)
+     );
+    }
+    onEditar(id: number){
+      this.router.navigate(['cliente/edit/'+id])
+    }
 }

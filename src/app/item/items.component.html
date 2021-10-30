@@ -6,7 +6,7 @@
   <DockLayout>
     <Label [text]="'LISTA DE CLIENTES'" fontSize="23" style="color: white"></Label>
     <label height="50"
-           [nsRouterLink]="['client/create']"
+           [nsRouterLink]="['/cliente/create']"
            text="  Agregar"
            android.position="popup"
            textWrap="true"
@@ -15,6 +15,16 @@
            fontSize="16; 10"
            horizontalAlignment="right">
     </label>
+      <label height="50"
+             (tap)="onCerrar()"
+             text="  Cerrar"
+             android.position="popup"
+             textWrap="true"
+             class="-rounded"
+             style="background: #209F1D; color: white"
+             fontSize="16; 10"
+             horizontalAlignment="right">
+      </label>
   </DockLayout>
 </ActionBar>
 
@@ -34,13 +44,12 @@
             <DockLayout>
                 <StackLayout width="80" dock="right">
                     <Label height="15"></Label>
-                    <Label text="&#xf1f8;" fontSize="30" class="fa action-item" style="color: red"></Label>
+                    <Label text="&#xf1f8;" fontSize="30" class="fa action-item" style="color: red" (tap)="onEliminar(item.cli_id)"></Label>
                 </StackLayout>
                 <StackLayout width="80" dock="right">
                     <Label height="15"></Label>
-                    <Label text="&#xf044;" fontSize="30" style="color: #3598E7" class="fa action-item"></Label>
+                    <Label text="&#xf044;" fontSize="30" style="color: #3598E7" class="fa action-item" (tap)="onEditar(item.cli_id)"></Label>
                 </StackLayout>
-
             </DockLayout>
         </DockLayout>
       </ng-template>

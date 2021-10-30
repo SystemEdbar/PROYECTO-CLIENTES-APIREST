@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Item } from './item'
-
+import { ResponseI } from '../models/response.interface'
 import { Observable } from 'rxjs'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Http, knownFolders, path, File, ImageSource, HttpResponse } from "@nativescript/core";
@@ -22,6 +22,10 @@ export class ItemService {
     getItems(): Observable<any> {
       let options = this.createRequestOptions();
       return this.http.get("https://systemedbar.site/api/clientes/show", {headers: options});
+    }
+    deleteCliente(id: number):Observable<any>{
+    let options = this.createRequestOptions();
+        return this.http.get("https://systemedbar.site/api/clientes/delete/"+ id, {headers: options});
     }
 //     getItems(): Observable<any> {
 //       return this.http.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=DEMO_KEY");

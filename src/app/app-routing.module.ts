@@ -7,6 +7,7 @@ import { ItemDetailComponent } from './item/item-detail.component'
 import { UserComponent } from './user/user.component'
 import { UserCreateComponent } from './user/usercreate.component'
 import { ClienteCreateComponent } from './Client/clientecreate.component'
+import { ClienteEditComponent } from './Client/clienteedit.component'
 import { LoginComponent } from './login/login.component'
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'user/create', component: UserCreateComponent},
   { path: 'login', component: LoginComponent},
   { path: 'cliente/create', component: ClienteCreateComponent},
+  { path: 'cliente/edit/:id', component: ClienteEditComponent},
 ]
 
 @NgModule({
@@ -24,4 +26,4 @@ const routes: Routes = [
   exports: [NativeScriptRouterModule],
 })
 export class AppRoutingModule {}
-export const routingComponents =[ItemDetailComponent, ItemsComponent, UserComponent, UserCreateComponent, LoginComponent, ClienteCreateComponent]
+export const routingComponents =[ItemDetailComponent, ItemsComponent, UserComponent, UserCreateComponent, LoginComponent, ClienteEditComponent, ClienteCreateComponent]
